@@ -5,10 +5,16 @@ function handleResponse(response)
   var items = json.items;
 
   for (var i = 0; i < items.length; i++) {
-    output += items[i].id + ": " + items[i].title + "\n";
-  }
 
-  alert(output);
+      var row = document.createElement('tr');
+      var issueId = document.createElement('td');
+      issueId.innerHTML = '<a href='+ items[i].html_url + '\'>'+ items[i].id + '</a>';
+      var issueTitle = document.createElement('td');
+      issueTitle.innerHTML = items[i].title;
+      row.appendChild(issueId);
+      row.appendChild(issueTitle);
+      document.getElementById('issue-table-body').appendChild(row);
+  }
 }
 
 function progressListener() {
@@ -18,8 +24,7 @@ function progressListener() {
 }
 function showIssues(){
 
-	var apiURL = "https://api.github.com/search/issues?q=repo:mozilla/sumo-tests+label:Community+state:open&sort=created&order=asc";
-  	
+        var apiURL = "https://api.github.com/search/issues?q=repo:mozilla/sumo-tests+label:Community+state:open&sort=created&order=asc";
 	var client = new XMLHttpRequest();
   	client.onreadystatechange = progressListener;
   	client.open("GET", apiURL);
