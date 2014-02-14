@@ -17,11 +17,14 @@ function handleResponse(response)
       issueAssignee.innerHTML = items[i].assignee;
       var issueMilestone = document.createElement('td');
       issueMilestone.innerHTML = items[i].milestone;
+      var issueUpdate = document.createElement('td');
+      issueUpdate.innerHTML = items[i].updated_at;
       row.appendChild(issueId);
       row.appendChild(issueTitle);
       row.appendChild(issueState);
       row.appendChild(issueAssignee);
       row.appendChild(issueMilestone);
+      row.appendChild(issueUpdate);
       document.getElementById('issue-table-body').appendChild(row);
   }
 }

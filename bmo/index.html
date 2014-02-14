@@ -20,7 +20,7 @@
                             <li class="hide_MSG">You must enter your email to continue.</li>
                                 <li class="hide_MSG">You must select the bug status.</li>
                         </ul>
-                    <form name="Search Form" id="search_form" onsubmit="return validate()">
+                    <form name="Search Form" id="search_form" class="s_form" onsubmit="return validate()">
                         <p>
                                 <label for="name">Name:</label>
                                     <input type="text" name="Name" id="name">
@@ -39,6 +39,33 @@
                                         <input type="reset" value="Reset Form" onclick="clearMSGs()">
                     </form>
             </div>
+            <table class='hide_MSG' id='bug_table'>
+                        <thead>
+                            <tr>
+                                <td>
+                                    ID
+                                </td>
+                                <td>
+                                    Assignee
+                                </td>
+                                <td>
+                                    Creator
+                                </td>
+                                <td>
+                                    Status  
+                                </td>
+                                <td>
+                                    Summary
+                                </td>
+                                <td>
+                                    Updated On
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody id='bugs-table-body'>
+                        </tbody>
+            </table>
+
                 <script type="text/javascript">
                     function clearMSGs(){
                             var errMSG = document.getElementsByTagName('li');
@@ -51,6 +78,7 @@
                
                     function validate(){
                             var form = document.getElementById('search_form');
+                            var btable = document.getElementById('bug_table');
                                 var errMSG = document.getElementsByTagName('li');
                                 var i = form.elements.length;
                                 var passOK = [];
@@ -109,6 +137,8 @@
                                 }
                                
                                 if(passCount === 3){
+                                   form.className = 'hide_MSG'; 
+                                   btable.className = 'show_table'; 
 				   showBugs(mailid, bstatus);
                                    return false;
                                 }
