@@ -16,7 +16,7 @@ function handleResponse(response)
       var issueAssignee = document.createElement('td');
       issueAssignee.innerHTML = items[i].assignee;
       var issueMilestone = document.createElement('td');
-      issueMilestone = items[i].milestone;
+      issueMilestone.innerHTML = items[i].milestone;
       row.appendChild(issueId);
       row.appendChild(issueTitle);
       row.appendChild(issueState);
