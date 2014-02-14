@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+    <head>
+            <meta charset="UTF-8">
+                <style type="text/css">
+                    body { text-align: center; font-family: Arial;}
+                        div { width: 400px; margin: 0 auto; }
+                        form { text-align: left; }
+                        ul { text-align: left; }
+                        .hide_MSG { display: none; }
+                </style>
+                <title>Search</title>
+        </head>
+        <body>
+	<script src='./showbugs.js'></script>
+            <div>
+                <h1>Search Bugzilla</h1>
+                        <ul>
+                                <li class="hide_MSG">You must enter your name to continue.</li>
+                            <li class="hide_MSG">You must enter your email to continue.</li>
+                                <li class="hide_MSG">You must select the bug status.</li>
+                        </ul>
+                    <form name="Search Form" id="search_form" onsubmit="return validate()">
+                        <p>
+                                <label for="name">Name:</label>
+                                    <input type="text" name="Name" id="name">
+                            <p>
+                                <label for="mailid">BMO Email:</label>
+                                    <input type="text" name="mailid" id="mailid">
+                            <p>
+                                <label for="status">Status:</label>
+                                    <select name="status" id="status">
+                                        <option></option>
+                        <option value="NEW">NEW</option>
+                        <option value="RESOLVED">RESOLVED</option>
+                                    </select>
+                            <p>
+                                <input type="submit" value="Submit">
+                                        <input type="reset" value="Reset Form" onclick="clearMSGs()">
+                    </form>
+            </div>
+                <script type="text/javascript">
+                    function clearMSGs(){
+                            var errMSG = document.getElementsByTagName('li');
+                                var i = errMSG.length;
+                               
+                                while(i--){
+                                    errMSG[i].className = 'hide_MSG';
+                                }
+                        }
+               
+                    function validate(){
+                            var form = document.getElementById('search_form');
+                                var errMSG = document.getElementsByTagName('li');
+                                var i = form.elements.length;
+                                var passOK = [];
+                                var passCount = 0;
+				var name, mailid, bstatus; 
+                       
+                            while(i--){
+                               
+                                    if(form.elements[i].getAttribute('id') === 'status'){
+                                            if(form.elements[i].selectedIndex === 0){
+                                                    errMSG[2].className = '';
+                                                        passOK[0] = false;
+                                                }
+                                                else{
+                                                    errMSG[2].className = 'hide_MSG';
+                                                        passOK[0] = true;
+						    	bstatus = form.elements[i].value;
+                                                }
+                                               
+                                        }
+                                               
+                                    if(form.elements[i].getAttribute('id') === 'mailid'){
+                                                if(form.elements[i].value === ''){
+                                                        errMSG[1].className = '';
+                                                    passOK[1] = false;
+                                                }
+                                                else{
+                                                        errMSG[1].className = 'hide_MSG';
+                                                    passOK[1] = true;
+						    mailid = form.elements[i].value;
+                                                }
+                                    }
+                                                       
+                                        if(form.elements[i].getAttribute('id') === 'name'){
+                                                if(form.elements[i].value === ''){
+                                                        errMSG[0].className = '';
+                                                        passOK[2] = false;
+                                                }
+                                                else{
+                                                        errMSG[0].className = 'hide_MSG';
+                                                        passOK[2] = true;
+						    	name = form.elements[i].value;
+                                                }
+                                        }
+                                }
+                              	 
+                                i = passOK.length;
+                                mailid = String(mailid);
+                                bstatus = String(bstatus);
+				mailid = mailid.trim();
+				bstatus = bstatus.trim();
+                                while(i--){
+                                   if(passOK[i]){
+                                       passCount++;
+                                   }
+                                }
+                               
+                                if(passCount === 3){
+				   showBugs(mailid, bstatus);
+                                   return false;
+                                }
+                                else{
+                               	return false;
+                                }
+                        }
+                </script>
+        </body>
+</html>
