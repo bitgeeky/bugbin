@@ -11,13 +11,13 @@ function handleResponse(response)
         var bugId = document.createElement('td');
         bugId.innerHTML = '<a href=\'https://bugzilla.mozilla.org/show_bug.cgi?id=' + bugs[i].id + '\'>'+ bugs[i].id + '</a>';
         var bugCreator = document.createElement('td');
-        bugCreator.innerHTML = bugs[i].creator.real_name;
+        bugCreator.innerHTML = bugs[i].creator_detail.real_name;
         var bugShortDesc = document.createElement('td');
         bugShortDesc.innerHTML = bugs[i].summary;
         var bugComponent = document.createElement('td');
         bugComponent.innerHTML = bugs[i].component;
         var bugAssignee = document.createElement('td');
-        bugAssignee.innerHTML = bugs[i].assigned_to.real_name;
+        bugAssignee.innerHTML = bugs[i].assigned_to_detail.real_name;
         var bugWhiteBoard = document.createElement('td');
         bugWhiteBoard.innerHTML = bugs[i].whiteboard;
         var bugStatus = document.createElement('td');
