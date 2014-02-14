@@ -33,17 +33,17 @@ function progressListener() {
 }
 function showIssues(){
 
-        var projects = ["Addon-Tests", "Affiliates-Tests", "bouncer-tests", "marketplace-tests", "mcom-tests",
-                        "mdn-tests", "mozillians-tests", "moztrap-tests", "qmo-tests", "remo-tests", "snippets-tests",
-                        "Socorro-Tests", "sumo-tests", "wiki-tests"
-        ]; 
-        for (var i = 0; i < projects.length; i++) {
-        var apiURL = "https://api.github.com/search/issues?q=repo:mozilla/" + projects[i] + "+label:Community+state:open&sort=created&order=asc";
+        //var projects = ["Addon-Tests", "Affiliates-Tests", "bouncer-tests", "marketplace-tests", "mcom-tests",
+        //                "mdn-tests", "mozillians-tests", "moztrap-tests", "qmo-tests", "remo-tests", "snippets-tests",
+        //                "Socorro-Tests", "sumo-tests", "wiki-tests"
+        //]; 
+        //for (var i = 0; i < projects.length; i++) {
+        var apiURL = "https://api.github.com/search/issues?q=user:mozilla+label:Community+state:open&sort=created&order=asc";
 	var client = new XMLHttpRequest();
   	client.onreadystatechange = progressListener;
   	client.open("GET", apiURL);
   	client.setRequestHeader('Accept',       'application/json');
   	client.setRequestHeader('Content-Type', 'application/json');
   	client.send();	
-        }
+        //}
 }
