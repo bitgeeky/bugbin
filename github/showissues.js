@@ -1,9 +1,10 @@
+var l;
 function handleResponse(response)
 {
   var output = "";
   var json = JSON.parse(response);
   var items = json.items;
-
+  l = items.length;
   for (var i = 0; i < items.length; i++) {
 
       var row = document.createElement('tr');
@@ -33,7 +34,12 @@ function progressListener() {
   if (this.readyState == 4 && this.status == 200) {
     handleResponse(this.responseText);
       var wmssg = document.getElementById('show_MSG');
-    wmssg.id = 'hide_MSG';
+      if(l>0){
+            wmssg.id = 'hide_MSG';
+      }
+      else{
+            wmssg.innerHTML = 'No Issues Found !'; 
+      }
   }
 }
 function showIssues(){

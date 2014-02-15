@@ -1,9 +1,10 @@
+var l;
 function handleResponse(response)
 {
   var output = "";
   var json = JSON.parse(response);
   var bugs = json.bugs;
-
+  l = bugs.length;
   for (var i = 0; i < bugs.length; i++) {
     output += bugs[i].id + ": " + bugs[i].summary + "\n";
     var row = document.createElement('tr');
@@ -41,7 +42,12 @@ function progressListener() {
   if (this.readyState == 4 && this.status == 200) {
     handleResponse(this.responseText);
     var mssg = document.getElementById('show_MSG');
-    mssg.id = 'hide_MSG';
+    if(l>0){
+        mssg.id = 'hide_MSG';
+    }
+    else{
+        mssg.innerHTML = 'No Bugs Found !';  
+    }
   }
 }
 function showBugs(mailid, bstatus){
