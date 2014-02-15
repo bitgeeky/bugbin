@@ -40,13 +40,17 @@ function handleResponse(response)
 function progressListener() {
   if (this.readyState == 4 && this.status == 200) {
     handleResponse(this.responseText);
+    var mssg = document.getElementById('show_MSG');
+    mssg.id = 'hide_MSG';
   }
 }
 function showBugs(mailid, bstatus){
-	console.log("enter");
-	console.log(mailid);
-	console.log(bstatus);
-	var res = mailid.split("@");
+	var wmssg = document.createElement('h1');
+        wmssg.innerHTML = "Fetching Bugs ...";
+        wmssg.id = 'show_MSG';
+        document.getElementsByTagName('body')[0].appendChild(wmssg);   
+        
+        var res = mailid.split("@");
 	var name = res[0];		
 	var host = res[1];
 	var resolution;

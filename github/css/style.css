@@ -2,6 +2,14 @@ h1{
         text-align : center;
         //margin:10% 0 0 0;
 }
+#hide_MSG { 
+            display: none; 
+            text-align : center;
+}
+#show_MSG { 
+        text-align : center;
+            
+}
 .zebra { 
 	border-collapse: collapse;
  	text-align: left; 

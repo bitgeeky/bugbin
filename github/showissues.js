@@ -32,11 +32,16 @@ function handleResponse(response)
 function progressListener() {
   if (this.readyState == 4 && this.status == 200) {
     handleResponse(this.responseText);
+      var wmssg = document.getElementById('show_MSG');
+    wmssg.id = 'hide_MSG';
   }
 }
 function showIssues(){
-
-        //var projects = ["Addon-Tests", "Affiliates-Tests", "bouncer-tests", "marketplace-tests", "mcom-tests",
+      var wmssg = document.createElement('h1');
+      wmssg.innerHTML = "Fetching Github Issues ...";
+    wmssg.id = 'show_MSG';
+    document.getElementsByTagName('body')[0].appendChild(wmssg);    
+    //var projects = ["Addon-Tests", "Affiliates-Tests", "bouncer-tests", "marketplace-tests", "mcom-tests",
         //                "mdn-tests", "mozillians-tests", "moztrap-tests", "qmo-tests", "remo-tests", "snippets-tests",
         //                "Socorro-Tests", "sumo-tests", "wiki-tests"
         //]; 
@@ -48,5 +53,6 @@ function showIssues(){
   	client.setRequestHeader('Accept',       'application/json');
   	client.setRequestHeader('Content-Type', 'application/json');
   	client.send();	
+        
         //}
 }
