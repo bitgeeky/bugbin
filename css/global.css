@@ -21,3 +21,8 @@ body{
      display: inline; 
      margin:0px;
 }
+#navbar ul li a{
+    
+     text-decoration : none;
+     color : #FFF;
+}
