@@ -1,0 +1,87 @@
+.zebra { 
+	border-collapse: collapse;
+ 	text-align: left; 
+	width: 70%; 
+} 
+.zebra {
+	font: normal 12px/150% Geneva, Arial, Helvetica, sans-serif; 
+	background: #fff; 
+	overflow: hidden; 
+	-webkit-border-radius: 6px; 
+	-moz-border-radius: 6px; 
+	border-radius: 6px;
+        margin:5% 0 0 15%;
+}
+.zebra td, .zebra th { 
+	padding: 11px 10px; 
+}
+.zebra thead th {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #006699), color-stop(1, #00557F) );
+	background:-moz-linear-gradient( center top, #006699 5%, #00557F 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#006699', endColorstr='#00557F');
+	background-color:#006699; 
+	color:#FFFFFF; 
+	font-size: 16px; 
+	font-weight: bold; 
+	border-left: 0px solid #0070A8; 
+} 
+.zebra thead th:first-child { 
+	border: none; 
+}
+.zebra tbody td {
+	color: #00496B; 
+	font-size: 14px;
+	font-weight: bold; 
+}
+.zebra .zebra tbody td:first-child { 
+	border-left: none; 
+}
+.zebra tbody tr:last-child td { 
+	border-bottom: none; 
+}
+.zebra tfoot td div { 
+	border-top: 1px solid #006699;
+	background: #E1EEF4;
+} 
+.zebra tfoot td { 
+	padding: 0; 
+	font-size: 12px 
+} 
+.zebra tfoot td div{ 
+	padding: 2px; 
+}
+.zebra tfoot td ul { 
+	margin: 0; 
+	padding:0; 
+	list-style: none; 
+	text-align: right; 
+}
+.zebra tfoot  li { 
+	display: inline; 
+	}
+.zebra tfoot li a { 
+	text-decoration: none; 
+	display: inline-block;  
+	padding: 2px 8px; 
+	margin: 1px;
+	color: #FFFFFF;
+	border: 1px solid #006699;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px; 
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #006699), color-stop(1, #00557F) );
+	background:-moz-linear-gradient( center top, #006699 5%, #00557F 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#006699', endColorstr='#00557F');
+	background-color:#006699; 
+}
+.zebra tfoot ul.active, .zebra tfoot ul a:hover {
+	text-decoration: none;
+	border-color: #006699; 
+	color: #FFFFFF; 
+	background: none; 
+	background-color:#00557F;
+}
+.zebra tbody tr:nth-child(odd),.zebra > tr:nth-child(odd){
+	background-color:#E1EEF4
+}
+

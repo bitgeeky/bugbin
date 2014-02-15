@@ -10,6 +10,7 @@
                         .hide_MSG { display: none; }
                 </style>
                 <title>Search</title>
+                <link rel="stylesheet" type="text/css" href="css/style.css">
         </head>
         <body>
 	<script src='./showbugs.js'></script>
@@ -24,7 +25,7 @@
                                 <label for="mailid">BMO Email:</label>
                                     <input type="text" name="mailid" id="mailid">
                             <p>
-                                <label for="status">Status:</label>
+                                <label for="status">BUG Status:</label>
                                     <select name="status" id="status">
                                         <option></option>
                         <option value="NEW">NEW</option>
@@ -38,24 +39,24 @@
             <table class='hide_MSG' id='bug_table'>
                         <thead>
                             <tr>
-                                <td>
+                                <th>
                                     ID
-                                </td>
-                                <td>
+                                </th>
+                                <th>
                                     Assignee
-                                </td>
-                                <td>
+                                </th>
+                                <th>
                                     Creator
-                                </td>
-                                <td>
+                                </th>
+                                <th>
                                     Status  
-                                </td>
-                                <td>
+                                </th>
+                                <th>
                                     Summary
-                                </td>
-                                <td>
+                                </th>
+                                <th>
                                     Updated On
-                                </td>
+                                </th>
                             </tr>
                         </thead>
                         <tbody id='bugs-table-body'>
@@ -121,7 +122,7 @@
                                 }
                                 if(passCount === 2){
                                    form.className = 'hide_MSG'; 
-                                   btable.className = 'show_table'; 
+                                   btable.className = 'zebra'; 
 				   showBugs(mailid, bstatus);
                                    return false;
                                 }
