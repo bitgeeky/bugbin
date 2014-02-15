@@ -1,0 +1,24 @@
+body{
+      
+     margin:0px;
+}
+#navbar{
+     
+     position:relative;
+     width:100%;
+     height:35px;
+     background-color: #000000;
+     font: 20px Tahoma, Helvetica, Arial, Sans-Serif;
+     color: #FFF;
+}
+#navbar ul{  
+     
+     padding: 8px 0px 0px 50px;  
+     margin:0px;
+     width: 100%; 
+}
+#navbar ul li{
+    
+     display: inline; 
+     margin:0px;
+}

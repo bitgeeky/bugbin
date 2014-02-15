@@ -11,8 +11,13 @@
                 </style>
                 <title>Search</title>
                 <link rel="stylesheet" type="text/css" href="css/style.css">
+                <link rel="stylesheet" type="text/css" href="../css/global.css">
+                <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure-min.css">
         </head>
         <body>
+        <div id = 'navbar'> <ul><li>BugBin</li></ul></div>
+        <a href="https://github.com/bitgeeky/bugbin/"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
+
 	<script src='./showbugs.js'></script>
             <div>
                 <h1>Search Bugzilla</h1>
@@ -20,7 +25,7 @@
                             <li class="hide_MSG">You must enter your email to continue.</li>
                                 <li class="hide_MSG">You must select the bug status.</li>
                         </ul>
-                    <form name="Search Form" id="search_form" class="s_form" onsubmit="return validate()">
+                    <form name="Search Form" id="search_form" class="pure-form pure-form-aligned" onsubmit="return validate()">
                             <p>
                                 <label for="mailid">BMO Email:</label>
                                     <input type="text" name="mailid" id="mailid">
@@ -32,8 +37,8 @@
                         <option value="RESOLVED">RESOLVED</option>
                                     </select>
                             <p>
-                                <input type="submit" value="Submit">
-                                        <input type="reset" value="Reset Form" onclick="clearMSGs()">
+                                <input type="submit" value="Submit" class="pure-button pure-button-primary">
+                                <input type="reset" value="Reset" onclick="clearMSGs()" class="pure-button">
                     </form>
             </div>
             <table class='hide_MSG' id='bug_table'>
