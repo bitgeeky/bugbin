@@ -16,14 +16,10 @@
             <div>
                 <h1>Search Bugzilla</h1>
                         <ul>
-                                <li class="hide_MSG">You must enter your name to continue.</li>
                             <li class="hide_MSG">You must enter your email to continue.</li>
                                 <li class="hide_MSG">You must select the bug status.</li>
                         </ul>
                     <form name="Search Form" id="search_form" class="s_form" onsubmit="return validate()">
-                        <p>
-                                <label for="name">Name:</label>
-                                    <input type="text" name="Name" id="name">
                             <p>
                                 <label for="mailid">BMO Email:</label>
                                     <input type="text" name="mailid" id="mailid">
@@ -89,11 +85,11 @@
                                
                                     if(form.elements[i].getAttribute('id') === 'status'){
                                             if(form.elements[i].selectedIndex === 0){
-                                                    errMSG[2].className = '';
+                                                    errMSG[1].className = '';
                                                         passOK[0] = false;
                                                 }
                                                 else{
-                                                    errMSG[2].className = 'hide_MSG';
+                                                    errMSG[1].className = 'hide_MSG';
                                                         passOK[0] = true;
 						    	bstatus = form.elements[i].value;
                                                 }
@@ -102,27 +98,15 @@
                                                
                                     if(form.elements[i].getAttribute('id') === 'mailid'){
                                                 if(form.elements[i].value === ''){
-                                                        errMSG[1].className = '';
+                                                        errMSG[0].className = '';
                                                     passOK[1] = false;
                                                 }
                                                 else{
-                                                        errMSG[1].className = 'hide_MSG';
+                                                        errMSG[0].className = 'hide_MSG';
                                                     passOK[1] = true;
 						    mailid = form.elements[i].value;
                                                 }
                                     }
-                                                       
-                                        if(form.elements[i].getAttribute('id') === 'name'){
-                                                if(form.elements[i].value === ''){
-                                                        errMSG[0].className = '';
-                                                        passOK[2] = false;
-                                                }
-                                                else{
-                                                        errMSG[0].className = 'hide_MSG';
-                                                        passOK[2] = true;
-						    	name = form.elements[i].value;
-                                                }
-                                        }
                                 }
                               	 
                                 i = passOK.length;
@@ -135,8 +119,7 @@
                                        passCount++;
                                    }
                                 }
-                               
-                                if(passCount === 3){
+                                if(passCount === 2){
                                    form.className = 'hide_MSG'; 
                                    btable.className = 'show_table'; 
 				   showBugs(mailid, bstatus);
