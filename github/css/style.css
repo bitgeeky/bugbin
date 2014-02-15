@@ -1,3 +1,7 @@
+h1{
+        text-align : center;
+        //margin:10% 0 0 0;
+}
 .zebra { 
 	border-collapse: collapse;
  	text-align: left; 
@@ -10,7 +14,7 @@
 	-webkit-border-radius: 6px; 
 	-moz-border-radius: 6px; 
 	border-radius: 6px;
-        margin:5% 0 0 15%;
+        margin:2% 0 0 15%;
 }
 .zebra td, .zebra th { 
 	padding: 11px 10px; 
