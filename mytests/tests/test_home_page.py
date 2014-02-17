@@ -20,17 +20,20 @@ class TestHomePage(BaseTest):
     @pytest.mark.nondestructive
     def test_that_clicking_on_logo_loads_home_page(self, mozwebqa):
         home_page = HomePage(mozwebqa)
+        home_page.go_to_page()
         new_page = home_page.click_on_navbar_logo()
         Assert.true(new_page.is_the_current_page)
     
     @pytest.mark.nondestructive
     def test_that_clicking_on_mozilla_image_loads_bugs_page(self, mozwebqa):
         home_page = HomePage(mozwebqa)
+        home_page.go_to_page()
         bugs_page = home_page.click_on_mozilla_image()
         Assert.true(bugs_page.is_the_current_page)
 
     @pytest.mark.nondestructive
     def test_that_clicking_on_github_image_loads_issue_page(self, mozwebqa):
         home_page = HomePage(mozwebqa)
+        home_page.go_to_page()
         issue_page = home_page.click_on_github_image()
         Assert.true(issue_page.is_the_current_page)
