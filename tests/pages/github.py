@@ -20,7 +20,12 @@ class GithubPage(Base):
 
     # Locators for the home page
     _navbar_locator = (By.ID, 'navbar')
+    _issue_table_locator = (By.ID, 'issuetable')
 
     def go_to_page(self):
         """Open the github page."""
         self.open('/github')
+
+    def check_for_issue_table(self):
+        return self.is_element_visible(_issue_table_locator)
+

@@ -22,5 +22,5 @@ class MozillaPage(Base):
     _navbar_locator = (By.ID, 'navbar')
 
     def go_to_page(self):
-        """Open the github page."""
-        self.open('/github')
+        """Open the mozilla page."""
+        self.open('/bmo')
