@@ -7,10 +7,10 @@ import time
 import datetime
 
 from selenium.webdriver.common.by import By
-
+from selenium import webdriver
 from base import Base
 from page import PageRegion
-
+from home import HomePage
 
 class GithubPage(Base):
     """This Page Object models the Github Issues Page (https://bitgeeky.github.io/bugbin/github)."""
@@ -24,8 +24,13 @@ class GithubPage(Base):
 
     def go_to_page(self):
         """Open the github page."""
-        self.open('/github')
+        self.open()
 
+    def click_on_navbar_logo(self):
+        self.selenium.find_element(*self._navbar_locator).click()
+        from pages.home import HomePage
+        return HomePage(self.testsetup)
+    
     def check_for_issue_table(self):
         return self.is_element_visible(_issue_table_locator)
 

@@ -28,7 +28,12 @@ class Page(object):
         """Open the specified url_fragment, which is relative to the base_url, in the current window."""
         self.selenium.get(self.base_url + url_fragment)
         self.is_the_current_page
-
+    
+    def direct_open(self, url_fragment):
+        """Open the specified url_fragment, which is relative to the base_url, in the current window."""
+        self.selenium.get(url_fragment)
+        self.is_the_current_page
+    
     @property
     def page_title(self):
         """
